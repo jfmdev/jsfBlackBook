@@ -4,6 +4,9 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  *
@@ -45,6 +48,9 @@ public class LoginController {
         }
         
         // Verify that the username and password are valid.
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jsfAddressBookPU");
+        EntityManager em = emf.createEntityManager();
+        
         if(this.password == null || this.username.compareTo(password) != 0) {
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid username or password", null);
             FacesContext.getCurrentInstance().addMessage(null, facesMsg);

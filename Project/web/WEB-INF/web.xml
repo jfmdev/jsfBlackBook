@@ -13,6 +13,10 @@
         <servlet-name>VersionServlet</servlet-name>
         <servlet-class>io.github.jfmdev.jsfaddressbook.servlets.VersionServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>TestDbServlet</servlet-name>
+        <servlet-class>io.github.jfmdev.jsfaddressbook.servlets.TestDbServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
@@ -20,6 +24,10 @@
     <servlet-mapping>
         <servlet-name>VersionServlet</servlet-name>
         <url-pattern>/Version</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestDbServlet</servlet-name>
+        <url-pattern>/TestDB</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
