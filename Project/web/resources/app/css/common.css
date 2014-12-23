@@ -1,12 +1,37 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : 19 déc. 2014, 11:09:41
-    Author     : jmaldonado
-*/
+
+@font-face {
+    font-family: 'pacifico';
+    src: url("#{resource['app/fonts/pacifico-webfont.eot']}");
+    src: url("#{resource['app/fonts/pacifico-webfont.eot?#iefix']}") format('embedded-opentype'),
+         url("#{resource['app/fonts/pacifico-webfont.woff2']}") format('woff2'),
+         url("#{resource['app/fonts/pacifico-webfont.woff']}") format('woff'),
+         url("#{resource['app/fonts/pacifico-webfont.ttf']}") format('truetype'),
+         url("#{resource['app/fonts/pacifico-webfont.svg#pacifico']}") format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'caviar_dreams';
+    src: url("#{resource['app/fonts/CaviarDreams-webfont.eot']}");
+    src: url("#{resource['app/fonts/CaviarDreams-webfont.eot?#iefix']}") format('embedded-opentype'),
+         url("#{resource['app/fonts/CaviarDreams-webfont.woff']}") format('woff'),
+         url("#{resource['app/fonts/CaviarDreams-webfont.ttf']}") format('truetype'),
+         url("#{resource['app/fonts/CaviarDreams-webfont.svg#caviar_dreams']}") format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'pacifico';
+}
+
+span.navbar-brand {
+    font-family: 'caviar_dreams';
+}
 
 ul.messages {
     padding-left: 0;
