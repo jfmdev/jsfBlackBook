@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package io.github.jfmdev.jsfaddressbook.servlets;
 
 import io.github.jfmdev.jsfaddressbook.dal.Contact;
@@ -24,7 +18,8 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 /**
- *
+ * A servlet that allows to test the connectivity with the database.
+ * 
  * @author jfmdev
  */
 public class TestDbServlet extends HttpServlet {

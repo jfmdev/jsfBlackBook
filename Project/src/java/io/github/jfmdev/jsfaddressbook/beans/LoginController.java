@@ -1,19 +1,21 @@
 package io.github.jfmdev.jsfaddressbook.beans;
 
+import io.github.jfmdev.jsfaddressbook.dal.User;
+import io.github.jfmdev.jsfaddressbook.dal.UsersDAO;
+import java.sql.SQLException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.pmw.tinylog.Logger;
 
 /**
- *
+ * Bean for the login form.
+ * 
  * @author jfmdev
  */
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class LoginController {
 
     /**
@@ -40,24 +42,29 @@ public class LoginController {
      * @return 'true' if user is logged, 'false' if contrary.
      */
     public boolean login() {
-        // Verify that username is not empty.
-        if(this.username == null || this.username.isEmpty()) {
-            FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "The username can not be empty", null);
-            FacesContext.getCurrentInstance().addMessage(null, facesMsg);
-            return false;
+Logger.info("hola");        
+        try {
+            // Verify that username is not empty.
+            if(this.username == null || this.username.isEmpty()) {
+                FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "The username can not be empty", null);
+                FacesContext.getCurrentInstance().addMessage(null, facesMsg);
+                return false;
+            }
+
+            // Verify that the username and password are valid.
+            User currentUser = UsersDAO.find(username, UsersDAO.toSHA1(password));
+            if(currentUser == null) {
+                FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid username or password", null);
+                FacesContext.getCurrentInstance().addMessage(null, facesMsg);
+                return false;
+            }
+
+            return true;
+        }catch(SQLException e) {
+            Logger.error(e);
         }
         
-        // Verify that the username and password are valid.
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jsfAddressBookPU");
-        EntityManager em = emf.createEntityManager();
-        
-        if(this.password == null || this.username.compareTo(password) != 0) {
-            FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Invalid username or password", null);
-            FacesContext.getCurrentInstance().addMessage(null, facesMsg);
-            return false;
-        }
-        
-        return true;
+        return false;
     }
     
     /**

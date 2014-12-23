@@ -17,6 +17,11 @@
         <servlet-name>TestDbServlet</servlet-name>
         <servlet-class>io.github.jfmdev.jsfaddressbook.servlets.TestDbServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InitServlet</servlet-name>
+        <servlet-class>io.github.jfmdev.jsfaddressbook.servlets.InitServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>    
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
