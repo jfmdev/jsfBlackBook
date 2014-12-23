@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <h:head>
+        <h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
+        <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css" />
+        <h:outputStylesheet library="bootstrap" name="css/bootstrap-theme.min.css" />
+        <h:outputStylesheet library="app" name="css/common.css" />
+        <ui:insert name="head"><!-- You content here --></ui:insert>
+    </h:head>
+    
+    <h:body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <span class="navbar-brand">jsfAddressBook</span>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="content">
+            <ui:insert name="content"><!-- You content here --></ui:insert>
+        </div>
+    </h:body>
+</html>

@@ -2,53 +2,45 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
-    <h:head>
-        <title>jsfAddressBook</title>
-        <h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
-        <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css" />
-        <h:outputStylesheet library="bootstrap" name="css/bootstrap-theme.min.css" />
-        <h:outputStylesheet library="app" name="css/common.css" />
-    </h:head>
+
     <h:body>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <span class="navbar-brand">jsfAddressBook</span>
-                </div>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
-                </ul>
-            </div>
-        </nav>
-        
-        <h1 class="text-center">Login</h1>
-        <br/>
-        <div class="container">
-            <div class="row col-md-4 col-md-offset-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Enter your account's details</div>
-                    <div class="panel-body">
-                        <h:form>
-                            <div class="form-group">
-                                <h:outputLabel for="usernameInput" value="Username"/>
-                                <h:inputText class="form-control" id="usernameInput" p:placeholder="Enter user's name" value="#{loginController.username}" />
+        <ui:composition template="./layout/main-template.xhtml">
+            <ui:define name="head">
+                <title>jsfAddressBook</title>            
+            </ui:define>
+            
+            <ui:define name="content">
+                <h1 class="text-center">Login</h1>
+                <br/>
+                <div class="container">
+                    <div class="row col-md-4 col-md-offset-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Enter your account's details</div>
+                            <div class="panel-body">
+                                <h:form>
+                                    <div class="form-group">
+                                        <h:outputLabel for="usernameInput" value="Username"/>
+                                        <h:inputText class="form-control" id="usernameInput" p:placeholder="Enter user's name" value="#{loginController.username}" />
+                                    </div>
+                                    <div class="form-group">
+                                        <h:outputLabel for="passwordInput" value="Password"/>
+                                        <h:inputSecret class="form-control" id="passwordInput" p:placeholder="Enter password" value="#{loginController.password}" />
+                                    </div>
+                                    <div>
+                                        <h:messages class="messages" errorClass="error" infoClass="info" globalOnly="true" />
+                                    </div>
+                                    <div class="text-right">
+                                        <h:commandButton id="loginButton" action="#{loginController.login}" value="Submit" class="btn btn-default" />
+                                    </div>
+                                </h:form>
                             </div>
-                            <div class="form-group">
-                                <h:outputLabel for="passwordInput" value="Password"/>
-                                <h:inputSecret class="form-control" id="passwordInput" p:placeholder="Enter password" value="#{loginController.password}" />
-                            </div>
-                            <div>
-                                <h:messages class="messages" errorClass="error" infoClass="info" globalOnly="true" />
-                            </div>
-                            <div class="text-right">
-                                <h:commandButton id="loginButton" action="#{loginController.login}" value="Submit" class="btn btn-default" />
-                            </div>
-                        </h:form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </ui:define>
+        </ui:composition>
         
         http://javaknowledge.info/authentication-based-secure-login-logout-using-jsf-2-0-and-primefaces-3-4-1/
     </h:body>
