@@ -28,7 +28,7 @@ public class UsersDAO {
     public static User find(int id) throws SQLException {
         Connection conn = MyDb.getConnection();
         QueryRunner runner = new QueryRunner();
-        User user = (User) runner.query(conn, "SELECT * FROM user WHERE id = ?", new BeanHandler(User.class), id);
+        User user = (User) runner.query(conn, "SELECT * FROM user WHERE id = ?", new BeanHandler(User.class), id);        
         DbUtils.close(conn);
         return user;
     }

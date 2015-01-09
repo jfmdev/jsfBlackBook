@@ -5,6 +5,7 @@ import io.github.jfmdev.jsfaddressbook.dal.UsersDAO;
 import java.sql.SQLException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import org.pmw.tinylog.Logger;
@@ -29,6 +30,12 @@ public class LoginController {
     private String password;
     
     /**
+     * The object for store the session data.
+     */
+    @ManagedProperty(value="#{sessionData}")
+    private SessionData sessionData;
+    
+    /**
      * Creates a new instance of LoginController
      */
     public LoginController() {
@@ -41,8 +48,7 @@ public class LoginController {
      * 
      * @return 'true' if user is logged, 'false' if contrary.
      */
-    public boolean login() {
-Logger.info("hola");        
+    public boolean login() {  
         try {
             // Verify that username is not empty.
             if(this.username == null || this.username.isEmpty()) {
@@ -59,11 +65,27 @@ Logger.info("hola");
                 return false;
             }
 
+            // Update session data.
+            this.sessionData.setUser(currentUser);
+            
             return true;
         }catch(SQLException e) {
             Logger.error(e);
         }
         
+        return false;
+    }
+    
+    /**
+     * Log out the current user.
+     * 
+     * @return 'true' if the user was logged out, 'false' if not.
+     */
+    public boolean logout() {
+        if(sessionData.isLogged()) {
+            sessionData.setUser(null);
+            return true;
+        }
         return false;
     }
     
@@ -101,5 +123,14 @@ Logger.info("hola");
      */
     public String getPassword() {
         return this.password;
+    }
+    
+    /**
+     * Sets the session data.
+     * 
+     * @param data The session data.
+     */
+    public void setSessionData(SessionData data) {
+        this.sessionData = data;
     }
 }

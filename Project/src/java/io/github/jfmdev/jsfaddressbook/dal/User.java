@@ -100,7 +100,7 @@ public class User implements Serializable {
      * @return 'true' if the user is an administrator, 'false' othewise.
      */
     public boolean isAdmin() {
-        return isAdmin == 1;
+        return isAdmin != null && isAdmin == 1;
     }
 
     /**
@@ -141,7 +141,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return this.id + ": " + this.name;
+        return this.id + ": " + this.name + "(" + pass + " - " + isAdmin + ")";
     }
     
 }
