@@ -11,5 +11,15 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean
 @RequestScoped
 public class ContactFormController {
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     // TODO: Verify that the user is owner of the contact or that is admin
 }

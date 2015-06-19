@@ -44,7 +44,7 @@ public class AuthFilter implements Filter {
             //  Verify if the user has permission to the requested page.
             String requestedUri = httpRequest.getRequestURI();
             if ( !isAdmin && (requestedUri.contains("/contact-list.xhtml") || requestedUri.contains("/user-list.xhtml")) ||
-                 !isLogged && (requestedUri.contains("/contact-edit.xhtml") || requestedUri.contains("/contact-personal-list.xhtml") || requestedUri.contains("/user-edit.xhtml")) ){
+                 !isLogged && (requestedUri.contains("/contact-edit.xhtml") || requestedUri.contains("/user-edit.xhtml")) ){
                 // Redirect to the login page.
                 httpResponse.sendRedirect(httpRequest.getContextPath() + "/faces/index.xhtml");
             } else {

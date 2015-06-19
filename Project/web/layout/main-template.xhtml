@@ -21,10 +21,10 @@
                     </div>
                     <ul class="nav navbar-nav navbar-left">
                         <h:panelGroup rendered="#{sessionData.isLogged()}">
-                            <li><a href="faces/contact-personal-list.xhtml">My contacts</a></li>
+                            <li><a href="faces/contact-list.xhtml">My contacts</a></li>
                         </h:panelGroup>
                         <h:panelGroup rendered="#{sessionData.isAdmin()}">
-                            <li><a href="faces/contact-list.xhtml">All contacts</a></li>
+                            <li><a href="faces/contact-list.xhtml?all=1">All contacts</a></li>
                             <li><a href="faces/user-list.xhtml">Users</a></li>
                         </h:panelGroup>
                     </ul>

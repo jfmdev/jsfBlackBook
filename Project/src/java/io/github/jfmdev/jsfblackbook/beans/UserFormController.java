@@ -11,5 +11,15 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean
 @RequestScoped
 public class UserFormController {
+    private Integer id;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     // TODO: Verify that the user is editing himself or is admin.
 }

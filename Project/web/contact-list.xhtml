@@ -1,20 +1,74 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <h:body>
+        <f:metadata>
+            <f:viewParam name="all" value="#{contactListController.all}"/>
+        </f:metadata>
+
         <ui:composition template="./layout/main-template.xhtml">
             <ui:define name="head">
-                <title>jsfAddressBook - Contacts</title>            
+                <title>jsfBlackBook - Contacts</title>            
             </ui:define>
             
             <ui:define name="content">
-                <h1 class="text-center">List of contacs</h1>
+                <h1 class="text-center">List of #{(contactListController.all != null and contactListController.all == 1)? 'all' : 'my'} contacts</h1>
                 <br/>
                 <div class="container">
-                    Some contacts
+                    <h:dataTable value="#{contactListController.listContacts()}" var="contact" styleClass="table table-striped">
+                        <h:column>
+                            <f:facet name="header">Name</f:facet>    				
+                            #{contact.fullName}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Telephone</f:facet>    				
+                            #{contact.telephone}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Single</f:facet>    
+                                <ui:fragment rendered="#{contact.single eq 1}">
+                                    <span class="glyphicon glyphicon-ok good" aria-hidden="true"></span>
+                                </ui:fragment>
+                                <ui:fragment rendered="#{!(contact.single eq 1)}">
+                                    <span class="glyphicon glyphicon-remove bad" aria-hidden="true"></span>
+                                </ui:fragment>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Score</f:facet>    	
+                            <div class="score">
+                                <ui:fragment rendered="#{contact.score eq 0}">
+                                    <c:forEach begin="1" end="5"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
+                                </ui:fragment>
+                                <ui:fragment rendered="#{contact.score eq 1}">
+                                    <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                                    <c:forEach begin="1" end="4"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
+                                </ui:fragment>
+                                <ui:fragment rendered="#{contact.score eq 2}">
+                                    <c:forEach begin="1" end="2"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="3"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
+                                </ui:fragment>
+                                <ui:fragment rendered="#{contact.score eq 3}">
+                                    <c:forEach begin="1" end="3"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="2"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
+                                </ui:fragment>
+                                <ui:fragment rendered="#{contact.score eq 4}">
+                                    <c:forEach begin="1" end="4"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
+                                    <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+                                </ui:fragment>
+                                <ui:fragment rendered="#{contact.score eq 5}">
+                                    <c:forEach begin="1" end="5"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
+                                </ui:fragment>
+                            </div>
+                        </h:column>
+                        <h:column>
+                            <a href="faces/contact-edit.xhtml?id=#{contact.id}">Details</a>
+                        </h:column>
+                    </h:dataTable>
                 </div>
             </ui:define>
         </ui:composition>

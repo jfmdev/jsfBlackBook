@@ -46,3 +46,14 @@ ul.messages li.info {
     color: green;
 }
 
+span.good {
+    color: green;
+}
+
+span.bad {
+    color: red;
+}
+
+div.score span {
+    color: darkgoldenrod;
+}

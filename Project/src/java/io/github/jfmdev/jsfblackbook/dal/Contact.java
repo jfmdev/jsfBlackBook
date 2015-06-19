@@ -16,11 +16,10 @@ public class Contact implements Serializable {
     private String address;
     private String telephone;
     private String email;
-    private Integer relative;
+    private Integer single;
+    private Integer score;
     private Integer id;
     private Integer userId;
-    // TODO: Add rating field.
-    // TODO: Replace 'relative' by 'single'.
     
     // ----- Constructors ----- //
     
@@ -125,41 +124,41 @@ public class Contact implements Serializable {
     }
 
     /**
-     * Gets the relative's flag.
+     * Gets the single's flag.
      * 
-     * @return '1' if the contact is a relative, '0' otherwise.
+     * @return '1' if the contact is single, '0' otherwise.
      */
-    public Integer getRelative() {
-        return relative;
+    public Integer getSingle() {
+        return single;
     }
 
     /**
-     * Verifies if the contact is relative of the user.
+     * Sets the single flag.
      * 
-     * @return 'true' if the contact is a relative, 'false' otherwise.
+     * @param single '1' if the contact is single, '0' otherwise.
      */
-    public boolean isRelative() {
-        return relative == 1;
+    public void setSingle(Integer single) {
+        this.single = single;
     }
 
     /**
-     * Sets the relative flag.
+     * Gets the contact's score.
      * 
-     * @param relative '1' if the contact is a relative, '0' otherwise.
+     * @return The score.
      */
-    public void setRelative(Integer relative) {
-        this.relative = relative;
+    public Integer getScore() {
+        return score;
     }
 
     /**
-     * Sets the relative flag.
+     * Sets the contact's score.
      * 
-     * @param relative '1' if the contact is a relative, '0' otherwise.
+     * @param score A number from 0 to 5.
      */
-    public void setRelative(Boolean relative) {
-        this.relative = relative == null? null : (relative? 1 : 0);
+    public void setScore(Integer score) {
+        this.score = score;
     }
-
+    
     /**
      * Gets the contact's unique id.
      * 

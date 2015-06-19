@@ -53,7 +53,7 @@ public class ContactsDAO {
     public static List<Contact> list(int userId) throws SQLException {
         Connection conn = MyDb.getConnection();
         QueryRunner runner = new QueryRunner();
-        List<Contact> contacts = (List<Contact>) runner.query(conn, "SELECT * FROM contact WHERE user_id = ?", new BeanListHandler(Contact.class), userId);
+        List<Contact> contacts = (List<Contact>) runner.query(conn, "SELECT * FROM contact WHERE userId = ?", new BeanListHandler(Contact.class), userId);
         DbUtils.close(conn);
         return contacts;
     }    
