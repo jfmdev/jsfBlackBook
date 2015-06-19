@@ -1,4 +1,4 @@
-package io.github.jfmdev.jsfaddressbook.servlets;
+package io.github.jfmdev.jsfblackbook.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;

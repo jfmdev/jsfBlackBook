@@ -1,8 +1,8 @@
-package io.github.jfmdev.jsfaddressbook.servlets;
+package io.github.jfmdev.jsfblackbook.servlets;
 
-import io.github.jfmdev.jsfaddressbook.dal.Contact;
-import io.github.jfmdev.jsfaddressbook.dal.MyDb;
-import io.github.jfmdev.jsfaddressbook.dal.User;
+import io.github.jfmdev.jsfblackbook.dal.Contact;
+import io.github.jfmdev.jsfblackbook.dal.MyDb;
+import io.github.jfmdev.jsfblackbook.dal.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;

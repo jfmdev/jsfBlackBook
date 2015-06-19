@@ -1,4 +1,4 @@
-package io.github.jfmdev.jsfaddressbook.dal;
+package io.github.jfmdev.jsfblackbook.dal;
 
 import java.math.BigInteger;
 import java.security.MessageDigest;

@@ -1,4 +1,4 @@
-package io.github.jfmdev.jsfaddressbook.dal;
+package io.github.jfmdev.jsfblackbook.dal;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

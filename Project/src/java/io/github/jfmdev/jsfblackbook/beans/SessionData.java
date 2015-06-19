@@ -1,6 +1,6 @@
-package io.github.jfmdev.jsfaddressbook.beans;
+package io.github.jfmdev.jsfblackbook.beans;
 
-import io.github.jfmdev.jsfaddressbook.dal.User;
+import io.github.jfmdev.jsfblackbook.dal.User;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 

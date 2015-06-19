@@ -1,7 +1,7 @@
-package io.github.jfmdev.jsfaddressbook.beans;
+package io.github.jfmdev.jsfblackbook.beans;
 
-import io.github.jfmdev.jsfaddressbook.dal.User;
-import io.github.jfmdev.jsfaddressbook.dal.UsersDAO;
+import io.github.jfmdev.jsfblackbook.dal.User;
+import io.github.jfmdev.jsfblackbook.dal.UsersDAO;
 import java.sql.SQLException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;

@@ -1,4 +1,4 @@
-package io.github.jfmdev.jsfaddressbook.dal;
+package io.github.jfmdev.jsfblackbook.dal;
 
 import java.io.Serializable;
 
@@ -19,7 +19,9 @@ public class Contact implements Serializable {
     private Integer relative;
     private Integer id;
     private Integer userId;
-
+    // TODO: Add rating field.
+    // TODO: Replace 'relative' by 'single'.
+    
     // ----- Constructors ----- //
     
     /**

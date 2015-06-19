@@ -1,6 +1,6 @@
-package io.github.jfmdev.jsfaddressbook.filters;
+package io.github.jfmdev.jsfblackbook.filters;
 
-import io.github.jfmdev.jsfaddressbook.beans.SessionData;
+import io.github.jfmdev.jsfblackbook.beans.SessionData;
 import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -46,7 +46,7 @@ public class AuthFilter implements Filter {
             if ( !isAdmin && (requestedUri.contains("/contact-list.xhtml") || requestedUri.contains("/user-list.xhtml")) ||
                  !isLogged && (requestedUri.contains("/contact-edit.xhtml") || requestedUri.contains("/contact-personal-list.xhtml") || requestedUri.contains("/user-edit.xhtml")) ){
                 // Redirect to the login page.
-                httpResponse.sendRedirect(httpRequest.getContextPath() + "/faces/login.xhtml");
+                httpResponse.sendRedirect(httpRequest.getContextPath() + "/faces/index.xhtml");
             } else {
                 // Continue to the page.
                 chain.doFilter(request, response);
