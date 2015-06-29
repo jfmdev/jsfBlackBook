@@ -2,16 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/F:/Java/jsfAddressBook/Project/web/user-list.xhtml</file>
-            <file>file:/F:/Java/jsfAddressBook/Project/src/java/io/github/jfmdev/jsfaddressbook/filters/AuthFilter.java</file>
-            <file>file:/F:/Java/jsfAddressBook/Project/src/java/io/github/jfmdev/jsfaddressbook/beans/LoginController.java</file>
-            <file>file:/F:/Java/jsfAddressBook/Project/web/index.xhtml</file>
-            <file>file:/F:/Java/jsfAddressBook/Project/web/WEB-INF/web.xml</file>
-            <file>file:/F:/Java/jsfAddressBook/Project/src/java/io/github/jfmdev/jsfaddressbook/beans/UserListController.java</file>
-            <file>file:/F:/Java/jsfAddressBook/Project/src/java/io/github/jfmdev/jsfaddressbook/beans/ContactListController.java</file>
-            <file>file:/F:/Java/jsfAddressBook/Project/src/java/io/github/jfmdev/jsfaddressbook/beans/ContactFormController.java</file>
-            <file>file:/F:/Java/jsfAddressBook/Project/src/java/io/github/jfmdev/jsfaddressbook/beans/UserFormController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

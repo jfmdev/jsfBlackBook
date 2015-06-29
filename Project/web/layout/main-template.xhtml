@@ -17,23 +17,23 @@
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <a href="#{request.contextPath}"><span class="navbar-brand">jsfAddressBook</span></a>
+                        <a href="#{request.contextPath}"><span class="navbar-brand">jsfBlackBook</span></a>
                     </div>
                     <ul class="nav navbar-nav navbar-left">
                         <h:panelGroup rendered="#{sessionData.isLogged()}">
-                            <li><a href="faces/contact-list.xhtml">My contacts</a></li>
+                            <li><a href="#{request.contextPath}/faces/contact-list.xhtml">My contacts</a></li>
                         </h:panelGroup>
                         <h:panelGroup rendered="#{sessionData.isAdmin()}">
-                            <li><a href="faces/contact-list.xhtml?all=1">All contacts</a></li>
-                            <li><a href="faces/user-list.xhtml">Users</a></li>
+                            <li><a href="#{request.contextPath}/faces/contact-list.xhtml?all=1">All contacts</a></li>
+                            <li><a href="#{request.contextPath}/faces/user-list.xhtml">Users</a></li>
                         </h:panelGroup>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <h:panelGroup rendered="#{sessionData.isLogged()}">
-                            <li><a href="faces/user-edit.xhtml"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> My account</a></li>
+                            <li><a href="#{request.contextPath}/faces/user-edit.xhtml?id=#{sessionData.userId}"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> My account</a></li>
                             <li><h:commandLink action="#{loginController.logout}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Logout</h:commandLink></li>
                         </h:panelGroup>
-                        <li><a href="faces/help.xhtml"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
+                        <li><a href="#{request.contextPath}/faces/help.xhtml"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span> Help</a></li>
                     </ul>
                 </div>
             </nav>

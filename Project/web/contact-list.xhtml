@@ -42,31 +42,31 @@
                             <f:facet name="header">Score</f:facet>    	
                             <div class="score">
                                 <ui:fragment rendered="#{contact.score eq 0}">
-                                    <c:forEach begin="1" end="5"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="5"> <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
                                 </ui:fragment>
                                 <ui:fragment rendered="#{contact.score eq 1}">
                                     <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
-                                    <c:forEach begin="1" end="4"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="4"> <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
                                 </ui:fragment>
                                 <ui:fragment rendered="#{contact.score eq 2}">
-                                    <c:forEach begin="1" end="2"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
-                                    <c:forEach begin="1" end="3"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="2"> <span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="3"> <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
                                 </ui:fragment>
                                 <ui:fragment rendered="#{contact.score eq 3}">
-                                    <c:forEach begin="1" end="3"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
-                                    <c:forEach begin="1" end="2"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="3"> <span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="2"> <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></c:forEach>
                                 </ui:fragment>
                                 <ui:fragment rendered="#{contact.score eq 4}">
-                                    <c:forEach begin="1" end="4"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="4"> <span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
                                     <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
                                 </ui:fragment>
                                 <ui:fragment rendered="#{contact.score eq 5}">
-                                    <c:forEach begin="1" end="5"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
+                                    <c:forEach begin="1" end="5"> <span class="glyphicon glyphicon-star" aria-hidden="true"></span></c:forEach>
                                 </ui:fragment>
                             </div>
                         </h:column>
                         <h:column>
-                            <a href="faces/contact-edit.xhtml?id=#{contact.id}">Details</a>
+                            <a href="#{request.contextPath}/faces/contact-edit.xhtml?id=#{contact.id}">Details</a>
                         </h:column>
                     </h:dataTable>
                 </div>

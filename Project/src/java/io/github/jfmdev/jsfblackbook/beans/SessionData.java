@@ -35,6 +35,15 @@ public class SessionData {
     }
 
     /**
+     * Get the user's id.
+     * 
+     * @return The user's id or '-1' if the user is not logged.
+     */
+    public Integer getUserId() {
+        return user != null? user.getId() : -1;
+    }
+
+    /**
      * Sets the user data.
      * 
      * @param user The user's data.

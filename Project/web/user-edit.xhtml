@@ -3,26 +3,59 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 
     <h:body>
         <f:metadata>
             <f:viewParam name="id" value="#{userFormController.id}"/>
         </f:metadata>
+        
         <ui:composition template="./layout/main-template.xhtml">
             <ui:define name="head">
                 <title>jsfBlackBook - User</title>            
             </ui:define>
             
             <ui:define name="content">
-                <h1 class="text-center">Edit user</h1>
-                <!-- preguntar si el parametro de la pagina (el id) es igual al id del usuario actual,
-                en cuyo caso el titulo seria My Account -->
+                <h1 class="text-center">#{(sessionData.userId == userFormController.id)? 'My account' : 'Edit user'}</h1>
+                
                 <br/>
+
                 <div class="container">
-                    Some user (#{userFormController.id})
+                    <h:form>
+                        <h:messages class="messages" errorClass="error" infoClass="info" globalOnly="true" />
+
+                        <div class="form-group">
+                            <h:outputLabel for="usrUsername" value="Username"/>
+                            <h:inputText class="form-control" id="usrUsername" p:placeholder="Username" value="#{userFormController.username}"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="usrPassword" value="Password"/>
+                            <h:inputSecret class="form-control" id="usrPassword" p:placeholder="Password" value="#{userFormController.password}"/>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <h:selectBooleanCheckbox value="#{userFormController.admin}" disabled="#{not sessionData.admin or (sessionData.userId == userFormController.id)}" /> Is administrator
+                            </label>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-md-4">
+                                <a class="btn btn-default" href="#{request.contextPath}/faces/user-list.xhtml">Return</a>
+                            </div>
+                            <div class="col-md-4">
+                                <ui:fragment rendered="#{sessionData.admin and userFormController.id != sessionData.userId}">
+                                    <h:commandButton 
+                                        action="#{userFormController.delete}" value="Delete" class="btn btn-danger" 
+                                        onclick="return confirm('Are you sure that you want to delete this user?\n(all his contacts are also going to be deleted)')" 
+                                        />
+                                </ui:fragment>
+                            </div> 
+                            <div class="col-md-4">
+                                <h:commandButton action="#{userFormController.save}" value="Save" class="btn btn-success" />
+                            </div>
+                        </div>
+                    </h:form>
                 </div>
-                <h:outputText value="#{param['id']}" />
             </ui:define>
         </ui:composition>
     </h:body>

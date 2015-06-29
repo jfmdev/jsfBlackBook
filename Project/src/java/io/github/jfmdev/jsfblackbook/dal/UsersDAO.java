@@ -64,6 +64,37 @@ public class UsersDAO {
     }
     
     /**
+     * Deletes an user.
+     * 
+     * @param id The user's id.
+     * @throws SQLException
+     */
+    public static void delete(int id) throws SQLException {
+        Connection conn = MyDb.getConnection();
+        QueryRunner runner = new QueryRunner();
+        runner.update(conn, "DELETE FROM contact WHERE userId = ?", id);        
+        runner.update(conn, "DELETE FROM user WHERE id = ?", id);        
+    }
+    
+    /**
+     * Saves an user.
+     * 
+     * @param user The user's data.
+     * @throws SQLException
+     */
+    public static void save(User user) throws SQLException {
+        if(user != null) {
+            Connection conn = MyDb.getConnection();
+            QueryRunner runner = new QueryRunner();
+            if(user.getId() == null || user.getId() < 0) {
+                runner.update(conn, "INSERT INTO user (name, pass, isAdmin) VALUES (?, ?, ?)", user.getName(), user.getPass(), user.getIsAdmin());
+            } else {
+                runner.update(conn, "UPDATE user SET name = ?, pass = ?, isAdmin = ? WHERE id = ?", user.getName(), user.getPass(), user.getIsAdmin(), user.getId());
+            }
+        }
+    }
+    
+    /**
      * Calculates the SHA-1 hash for a string.
      * 
      * @param text A string.

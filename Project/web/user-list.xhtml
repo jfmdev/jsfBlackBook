@@ -30,9 +30,14 @@
                                 </ui:fragment>
                         </h:column>
                         <h:column>
-                            <a href="faces/user-edit.xhtml?id=#{user.id}">Edit</a>
+                            <a href="#{request.contextPath}/faces/user-edit.xhtml?id=#{user.id}">Edit</a>
                         </h:column>
                     </h:dataTable>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h:link outcome="user-edit" value="Create user"/>
+                        </div>
+                    </div>
                 </div>
             </ui:define>
         </ui:composition>
