@@ -18,8 +18,12 @@
             
             <ui:define name="content">
                 <h1 class="text-center">List of #{(contactListController.all != null and contactListController.all == 1)? 'all' : 'my'} contacts</h1>
+                
                 <br/>
+                
                 <div class="container">
+                    <h:messages class="messages" errorClass="error" infoClass="info" globalOnly="true" />
+
                     <h:dataTable value="#{contactListController.listContacts()}" var="contact" styleClass="table table-striped">
                         <h:column>
                             <f:facet name="header">Name</f:facet>    				
@@ -31,10 +35,10 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">Single</f:facet>    
-                                <ui:fragment rendered="#{contact.single eq 1}">
+                                <ui:fragment rendered="#{contact.single eq true}">
                                     <span class="glyphicon glyphicon-ok good" aria-hidden="true"></span>
                                 </ui:fragment>
-                                <ui:fragment rendered="#{!(contact.single eq 1)}">
+                                <ui:fragment rendered="#{contact.single eq false}">
                                     <span class="glyphicon glyphicon-remove bad" aria-hidden="true"></span>
                                 </ui:fragment>
                         </h:column>
@@ -69,6 +73,12 @@
                             <a href="#{request.contextPath}/faces/contact-edit.xhtml?id=#{contact.id}">Details</a>
                         </h:column>
                     </h:dataTable>
+                    
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h:link outcome="contact-edit" value="Create contact"/>
+                        </div>
+                    </div>
                 </div>
             </ui:define>
         </ui:composition>

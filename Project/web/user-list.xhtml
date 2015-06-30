@@ -15,6 +15,8 @@
                 <h1 class="text-center">List of users</h1>
                 <br/>
                 <div class="container">
+                    <h:messages class="messages" errorClass="error" infoClass="info" globalOnly="true" />
+                        
                     <h:dataTable value="#{userListController.listUsers()}" var="user" styleClass="table table-striped">
                         <h:column>
                             <f:facet name="header">Name</f:facet>    				
@@ -23,16 +25,17 @@
                         <h:column>
                             <f:facet name="header">Admin</f:facet>    
                                 <ui:fragment rendered="#{user.isAdmin eq 1}">
-                                    <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-ok good" aria-hidden="true"></span>
                                 </ui:fragment>
                                 <ui:fragment rendered="#{!(user.isAdmin eq 1)}">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                    <span class="glyphicon glyphicon-remove bad" aria-hidden="true"></span>
                                 </ui:fragment>
                         </h:column>
                         <h:column>
                             <a href="#{request.contextPath}/faces/user-edit.xhtml?id=#{user.id}">Edit</a>
                         </h:column>
                     </h:dataTable>
+                    
                     <div class="row">
                         <div class="col-md-12 text-center">
                             <h:link outcome="user-edit" value="Create user"/>

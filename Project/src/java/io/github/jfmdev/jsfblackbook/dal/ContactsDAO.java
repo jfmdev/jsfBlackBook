@@ -57,4 +57,34 @@ public class ContactsDAO {
         DbUtils.close(conn);
         return contacts;
     }    
+    
+    /**
+     * Deletes a contact.
+     * 
+     * @param id The contact's id.
+     * @throws SQLException
+     */
+    public static void delete(int id) throws SQLException {
+        Connection conn = MyDb.getConnection();
+        QueryRunner runner = new QueryRunner();
+        runner.update(conn, "DELETE FROM contact WHERE id = ?", id);        
+    }
+    
+    /**
+     * Saves a contact.
+     * 
+     * @param contact The contact's data.
+     * @throws SQLException
+     */
+    public static void save(Contact contact) throws SQLException {
+        if(contact != null) {
+            Connection conn = MyDb.getConnection();
+            QueryRunner runner = new QueryRunner();
+            if(contact.getId() == null || contact.getId() < 0) {
+                runner.update(conn, "INSERT INTO contact (fullName, address, telephone, email, single, userId, score) VALUES (?, ?, ?, ?, ?, ?, ?)", contact.getFullName(), contact.getAddress(), contact.getTelephone(), contact.getEmail(), contact.getSingle(), contact.getUserId(), contact.getScore());
+            } else {
+                runner.update(conn, "UPDATE contact SET fullName = ?, address = ?, telephone = ?, email = ?, single = ?, userId = ?, score = ? WHERE id = ?", contact.getFullName(), contact.getAddress(), contact.getTelephone(), contact.getEmail(), contact.getSingle(), contact.getUserId(), contact.getScore(), contact.getId());
+            }
+        }
+    }    
 }

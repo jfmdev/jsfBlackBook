@@ -139,8 +139,10 @@ public class UserFormController {
      */
     public Boolean delete() {
         try {    
-            UsersDAO.delete(user.getId());
-            return true;
+            if(user.getId() != null) {
+                UsersDAO.delete(user.getId());
+                return true;
+            }
         }catch(SQLException e) {
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, e.getMessage(), null);
             FacesContext.getCurrentInstance().addMessage(null, facesMsg);

@@ -38,17 +38,18 @@
                                 <h:selectBooleanCheckbox value="#{userFormController.admin}" disabled="#{not sessionData.admin or (sessionData.userId == userFormController.id)}" /> Is administrator
                             </label>
                         </div>
+                        
                         <div class="row text-center">
                             <div class="col-md-4">
                                 <a class="btn btn-default" href="#{request.contextPath}/faces/user-list.xhtml">Return</a>
                             </div>
                             <div class="col-md-4">
-                                <ui:fragment rendered="#{sessionData.admin and userFormController.id != sessionData.userId}">
+                                <div style="visibility: #{(userFormController.id != null and sessionData.admin and userFormController.id != sessionData.userId)? 'visible' : 'hidden'}" >
                                     <h:commandButton 
                                         action="#{userFormController.delete}" value="Delete" class="btn btn-danger" 
                                         onclick="return confirm('Are you sure that you want to delete this user?\n(all his contacts are also going to be deleted)')" 
                                         />
-                                </ui:fragment>
+                                </div>
                             </div> 
                             <div class="col-md-4">
                                 <h:commandButton action="#{userFormController.save}" value="Save" class="btn btn-success" />

@@ -43,11 +43,11 @@ ul.messages li.error {
 }
 
 ul.messages li.info {
-    color: green;
+    color: lightgreen;
 }
 
 span.good {
-    color: green;
+    color: lightgreen;
 }
 
 span.bad {
@@ -56,4 +56,8 @@ span.bad {
 
 div.score span {
     color: darkgoldenrod;
+}
+
+div.form-group table {
+    width: 100%;
 }

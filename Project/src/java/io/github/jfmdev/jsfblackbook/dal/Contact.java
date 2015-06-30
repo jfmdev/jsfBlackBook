@@ -126,10 +126,23 @@ public class Contact implements Serializable {
     /**
      * Gets the single's flag.
      * 
-     * @return '1' if the contact is single, '0' otherwise.
+     * @return 'true' if the contact is single, 'false' otherwise.
      */
-    public Integer getSingle() {
-        return single;
+    public Boolean getSingle() {
+        return single != null? single == 1 : null;
+    }
+
+    /**
+     * Sets the single flag.
+     * 
+     * @param single 'true' if the contact is single, 'false' otherwise.
+     */
+    public void setSingle(Boolean single) {
+        if(single != null) {
+            this.single = single? 1 : 0;
+        } else {
+            this.single = null;
+        }
     }
 
     /**

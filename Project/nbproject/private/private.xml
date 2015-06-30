@@ -2,6 +2,22 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/F:/Java/jsfBlackBook/Project/src/java/io/github/jfmdev/jsfblackbook/beans/SessionData.java</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/web/user-list.xhtml</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/web/layout/main-template.xhtml</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/web/contact-list.xhtml</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/src/java/io/github/jfmdev/jsfblackbook/beans/UserFormController.java</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/web/user-edit.xhtml</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/web/index.xhtml</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/web/contact-edit.xhtml</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/src/java/io/github/jfmdev/jsfblackbook/beans/LoginController.java</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/web/WEB-INF/tinylog.properties</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/web/help.xhtml</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/src/java/io/github/jfmdev/jsfblackbook/dal/User.java</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/src/java/io/github/jfmdev/jsfblackbook/filters/AuthFilter.java</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/web/WEB-INF/faces-config.xml</file>
+            <file>file:/F:/Java/jsfBlackBook/Project/src/java/io/github/jfmdev/jsfblackbook/dal/UsersDAO.java</file>
+        </group>
     </open-files>
 </project-private>
