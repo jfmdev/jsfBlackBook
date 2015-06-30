@@ -31,12 +31,6 @@
     <navigation-rule>
         <from-view-id>/user-edit.xhtml</from-view-id>
 	<navigation-case>
-            <from-action>#{userFormController.save}</from-action>
-            <from-outcome>true</from-outcome>
-            <to-view-id>/user-list.xhtml</to-view-id>
-	</navigation-case>
-	<navigation-case>
-            <from-action>#{userFormController.delete}</from-action>
             <from-outcome>true</from-outcome>
             <to-view-id>/user-list.xhtml</to-view-id>
 	</navigation-case>
@@ -44,12 +38,6 @@
     <navigation-rule>
         <from-view-id>/contact-edit.xhtml</from-view-id>
 	<navigation-case>
-            <from-action>#{contactFormController.save}</from-action>
-            <from-outcome>true</from-outcome>
-            <to-view-id>/contact-list.xhtml</to-view-id>
-	</navigation-case>
-	<navigation-case>
-            <from-action>#{contactFormController.delete}</from-action>
             <from-outcome>true</from-outcome>
             <to-view-id>/contact-list.xhtml</to-view-id>
 	</navigation-case>
